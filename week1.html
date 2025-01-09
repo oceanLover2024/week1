@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">        
+        function hamburger(){
+            let hamburger= document.querySelector(".hamburger");
+            let selectMenu= document.querySelector(".selectMenu");
+            hamburger.style.display= "none";
+            selectMenu.style.display= "block";}
+        
+        function x(){
+            let hamburger= document.querySelector(".hamburger");
+            let selectMenu= document.querySelector(".selectMenu");
+            hamburger.style.display= "block";
+            selectMenu.style.display= "none";} 
+           
+    </script>
+    <style link rel="stylesheet" type="text/css">
+        /*rwd*/
+        .three{display: none;}
+        .two{display: none;}
+        .zero{display: block;} 
+        @media(max-width:600px){
+            .three{display: block;}
+            .two{display: none;}
+            .zero{display: none;}}
+
+        @media(max-width:1200px)and (min-width: 601px){
+            .three{display: none;}
+            .two{display: block;}
+            .zero{display: none;}   
+        }
+        /*內容*/
+        /*600以下*/
+        .nav3{
+            display: flex; margin: 10px;}
+        .welcome3{
+            background-color: rgb(215, 226, 240);
+            height: 250px; 
+            font-size: 40px;
+            display: flex; align-items: center; justify-content: center;}
+        .main3{
+            width: 90%; margin: 0 auto;
+            margin-top: 20px;}
+        .boxLayout3{
+            display: block; margin: 10px;}
+        .smallBlock{
+            width: 100%; margin-bottom: 10px;
+            background-color: rgb(215, 226, 240);
+            display: flex; align-items: center;}    
+        .smallPic3{
+            width: 80px; height: 50px; object-fit: cover;}
+        .bigBlock{
+            width: 100%; height: 200px; margin-bottom: 10px;
+            background-color: rgb(215, 226, 240);
+            overflow: hidden;            
+            position: relative;}
+        .bigPic3{
+            width: 100%; object-fit: cover;}
+        .textBlock3{
+            width: 100%; height: 50px;
+            position: absolute;
+            bottom: 0px;
+            background-color: aliceblue; opacity: 0.8;
+            display: flex; justify-content: center; align-items: center;}
+        .icon3{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .selectMenu{
+            display: none;
+            position:absolute;
+            right:0px; top:0px;
+            width: 120px; height: 100%;
+            border-left: 1px rgb(64, 63, 63) solid;
+            background-color: white;
+            z-index: 2;}
+        .selectItem{margin: 30px;}
+            
+        .x{
+            position: absolute; top:10px; right:10px;
+            font-size: 30px;}  
+        /*1200以上*/        
+        body{
+            margin: 0px;
+            background-color: rgb(216, 216, 214);
+            font-size: 20px;}
+        nav{
+        display: flex; margin: 10px; }             
+        .title{flex: auto;}
+        .menu{
+        flex: none;
+        width: 6%;
+        justify-content: flex-end;text-align: center;}
+        .Welcome{
+        display: flex; align-items: center;justify-content: center;            
+        height: 250px;
+        background-color: rgb(215, 226, 240);       
+        margin-top: 10px; margin-bottom: 10px;}
+        .WelcomeText{            
+            font-size: 40px;}
+        .layout0{
+           width: 1200px; margin: 0 auto ;}
+        .smallBoxLayout0{display: flex;}
+        .smallBox0{
+            height: 50px; width: 380px; margin: 10px;
+            background-color: rgb(215, 226, 240);
+            display: flex; align-items: center;}
+        .smallPic0{
+            width: 80px; height: 100%;
+            object-fit: cover;}
+        .bigBoxLayout0{display: flex;}
+        .longBox0{
+            width: 380px;height: 200px;
+            margin: 10px;
+            position: relative;}
+        .shortBox0{            
+            width: 180px; height: 200px;
+            margin: 10px;
+            position: relative;}
+        .longPic0{
+            width: 380px;height: 200px;
+            object-fit: cover;}
+        .shortPic0{
+            width: 180px; height: 200px;
+            object-fit: cover;}
+        .icon{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .textBlock0{
+            position: absolute; bottom: 0px;
+            background-color: rgb(250, 252, 255);           
+            width: 100%; height:50px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;justify-content: center;
+        }  
+        /*600-1200*/    
+        .layout{
+            width: 90%; margin: 0 auto;}
+        .BoxLayout{
+            display: flex;}
+        .smallBox1{
+            height: 50px; width: 50%;
+            margin: 10px; background-color: rgb(215, 226, 240);  ;
+            display: flex; align-items: center;}
+        .smallBox3{
+            height: 50px; width: 100%;
+            margin: 10px; background-color: rgb(215, 226, 240);  ;
+            display: flex; align-items: center;}        
+        .smallPic{
+            width: 80px; height: 50px;
+            object-fit: cover;}
+        .promotion{
+            align-items: center;}
+        .bigBox{
+            height: 200px; width: 25%;
+            margin: 10px;
+            display: flex;
+            overflow: hidden;
+            position: relative;}
+        .bigPic{
+            width: 100%;
+            object-fit: cover;}
+        .icon{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .textBlock{
+            position: absolute;
+            bottom: 0px;
+            background-color: aliceblue;
+            width: 100%; height: 50px;
+            opacity: 0.8;
+            display: flex; align-items: center;justify-content: center;}
+        .longBox{
+            height: 200px; width: 50%; margin: 10px;
+            display: flex;
+            overflow: hidden;
+            position: relative;}  
+    </style>
+</head>
+
+<body>
+    <div class="zero">
+    <nav>
+        <div class="title">My Website</div>
+        <div class="menu">Item 1</div>
+        <div class="menu">Item 2</div>
+        <div class="menu">Item 3</div>
+        <div class="menu">Item 4</div>      
+    </nav>
+    <main>
+        <div class="Welcome">
+            <div class="WelcomeText">Welcome to MyHome</div>
+        </div>
+        <div class="layout0">
+            <div class="smallBoxLayout0">
+                <div class="smallBox0"><img class= "smallPic0" src="pic.jpg"/>Promotion1</div>
+                <div class="smallBox0"><img class= "smallPic0" src="pic.jpg"/>Promotion2</div>
+                <div class="smallBox0"><img class= "smallPic0" src="pic.jpg"/>Promotion3</div>
+            </div>
+            <div class="bigBoxLayout0">
+                <div class="longBox0">
+                    <img class="longPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 1</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 2</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 3</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 4</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 5</div>
+                </div>        
+            </div>
+            <div class="bigBoxLayout0">
+                <div class="longBox0">
+                    <img class="longPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 1</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 2</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 3</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 4</div>
+                </div>
+                <div class="shortBox0">
+                    <img class="shortPic0" src="pic.jpg">
+                    <div class= "icon">&#11088;</div>
+                    <div class="textBlock0">Title 5</div>
+                </div>        
+                        
+            </div>
+        </div>
+    </main>
+</div>
+
+<!--600-1200尺寸-->
+<div class="two">
+<nav>
+    <div class="title">My Website</div>
+    <div class="menu">Item 1</div>
+    <div class="menu">Item 2</div>
+    <div class="menu">Item 3</div>
+    <div class="menu">Item 4</div>      
+</nav>
+<main>
+    <div class="Welcome">
+        <div class="WelcomeText">Welcome to MyHome</div>
+    </div>
+    <div class="layout">
+        <div class="BoxLayout">
+            <div class="smallBox1"><img class="smallPic" src="pic.jpg"/>Promotion1</div>
+            <div class="smallBox1"><img class="smallPic" src="pic.jpg"/>Promotion2</div>
+        </div>
+        <div class="BoxLayout">
+            <div class="smallBox3"><img class="smallPic" src="pic.jpg"/>Promotion3</div></div>
+        <div class="BoxLayout">
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 1</div>
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 2</div>    
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 3</div>
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 4</div>
+            </div>
+        </div>
+        <!--第二層相同-->
+        <div class="two">
+        <div class="BoxLayout">
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 5</div>
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 6</div>    
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 7</div>
+            </div>
+            <div class="bigBox"><img class="bigPic" src="pic.jpg">
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 8</div>
+            </div>
+        </div>
+        <!--第三層-->
+        <div class="BoxLayout">
+            <div class="longBox">
+                <img class="bigPic" src="pic.jpg"/>
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 9</div>
+            </div>
+            <div class="longBox">
+                <img class="bigPic" src="pic.jpg"/>
+                <div class="icon">&#11088;</div>
+                <div class="textBlock">Title 10</div>
+            </div>
+        </div>             
+    </div>   
+</main>
+</div>
+
+<!--600以下-->
+<div class= "three">
+    <div class="nav3">
+        <div class="title">My Website</div>
+        <div class="hamburger" onclick="hamburger();">&#9776</div>
+        <div class="selectMenu">
+            <div class="x" onclick="x();">&times;</div>
+            <div class="selectItem">Item 1</div>
+            <div class="selectItem">Item 2</div>
+            <div class="selectItem">Item 3</div>
+            <div class="selectItem">Item 4</div>
+        </div>
+    </div>
+    <div class="welcome3">Welcome to MyHome</div>
+    <div class="main3">
+        <div class="boxLayout3">
+           <div class= "smallBlock"><img class="smallPic3" src="pic.jpg"/>Promotion1</div>
+           <div class= "smallBlock"><img class="smallPic3" src="pic.jpg"/>Promotion2</div>
+           <div class= "smallBlock"><img class="smallPic3" src="pic.jpg"/>Promotion3</div>
+           <!--大格的-->
+           <div class="bigBlock">
+                <img class="bigPic3" src="pic.jpg"/>
+                <div class="textBlock3">Title 1</div>
+                <div class="icon3">&#11088;</div>
+           </div> 
+           <div class="bigBlock">
+            <img class="bigPic3" src="pic.jpg"/>
+            <div class="textBlock3">Title 2</div>
+            <div class="icon3">&#11088;</div>
+       </div> 
+       <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 3</div>
+        <div class="icon3">&#11088;</div>
+   </div> 
+   <div class="bigBlock">
+    <img class="bigPic3" src="pic.jpg"/>
+    <div class="textBlock3">Title 4</div>
+    <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 5</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 6</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 7</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 8</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 9</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock">
+        <img class="bigPic3" src="pic.jpg"/>
+        <div class="textBlock3">Title 10</div>
+        <div class="icon3">&#11088;</div>
+    </div> 
+        
+</div>
+
+</body>
+</html>
