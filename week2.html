@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week2</title>
+<script>
+function findAndPrint(messages, currentStation){
+//Task1
+// your code here
+//建立捷運物件
+const mrt={   
+    "Xindian": 0,
+    "Xindian City Hall": 1,
+    "Qizhang": 2,
+    "Xiaobitan": 2,
+    "Dapingling": 3,
+    "Jingmei": 4,
+    "Wanlong": 5,
+    "Gongguan": 6,
+    "Taipower Building": 7,
+    "Guting": 8,
+    "Chiang Kai-Shek Memorial Hall": 9,
+    "Xiaonanmen": 10,
+    "Ximen": 11,
+    "Beimen": 12,
+    "Zhongshan": 13,
+    "Shongjiang Nanjing": 14,
+    "Nanjing Fuxing": 15,
+    "Taipei Arena": 16,
+    "Nangjing Sanmin": 17,
+    "Songshan": 18
+    };
+    //找出自己當前的站的數值
+    let myPoint= mrt[currentStation];
+    //預設目前還沒有找到最近的朋友
+    let nearFriend= NaN;
+    //預設最小距離是無限大
+    let short= Infinity;
+    //看station有沒有符合messages的
+    for(station in mrt){
+        for(let[ name, talk] of Object.entries(messages)){
+            //有符合的話,設定朋友的站的數值,然後算出跟自己的距離
+            if( talk.includes(station)){
+                let friendPoint= mrt[station];
+                let distance= Math.abs(myPoint-friendPoint);
+                if(station=="Xiaobitan"){
+                    distance=distance+1;
+                }    
+                if(distance < short){
+                    short= distance;
+                    nearFriend= name;                    
+                } 
+            }  
+        }   
+    }
+    console.log(nearFriend)  
+    
+    //talk=Object.values(messages);
+    //console.log(message);
+    //name=Object.keys(messages);
+    //console.log(name)   
+
+    
+
+//---------------------------------------------------
+}
+const messages={
+"Bob":"I'm at Ximen MRT station.",
+"Mary":"I have a drink near Jingmei MRT station.",
+"Copper":"I just saw a concert at Taipei Arena.",
+"Leslie":"I'm at home near Xiaobitan station.",
+"Vivian":"I'm at Xindian station waiting for you."
+};
+findAndPrint(messages, "Wanlong"); // print Mary
+findAndPrint(messages, "Songshan"); // print Copper
+findAndPrint(messages, "Qizhang"); // print Leslie
+findAndPrint(messages, "Ximen"); // print Bob
+findAndPrint(messages, "Xindian City Hall"); // print Vivian
+
+
+//task2
+console.log("====================================")
+// your code here, maybe
+//建立一個schedule物件來儲存顧問的空堂時間
+schedule={
+    John:[],
+    Bob:[],
+    Jenny:[]
+}
+//---------------------------------------------------
+function book(consultants, hour, duration, criteria){    
+// your code here
+//定義一個函式來檢查顧問是否有空堂,若有,把時間加入shedule物件中,並回傳是哪個顧問有空
+    function available(name, hour, duration){
+        for(s of schedule[name]){//若屬性名稱是動態的,要用[]
+            let [start, end] = s;
+            //如果時間重疊,回傳null
+            if((hour < end) && (hour+duration > start)){
+                return null;
+            }
+        }
+        //檢查完以後,把新預約的時間加進schedule,回傳有空堂的顧問的名子
+        schedule[name].push([hour, hour + duration])
+        return name;        
+    }
+//比較price跟rate,調整遍歷顧問空堂的順序
+    if(criteria == "price"){
+        consultants.sort(function(a,b){return a.price-b.price});
+    }else if(criteria == "rate"){
+        consultants.sort(function(a,b){return b.rate-a.rate});
+    }
+
+//遍歷所有顧問,呼叫 是否有空 的函式,把函式傳入參數算出結果,印出結果
+    for(c of consultants){
+        let result= available(c.name, hour, duration);
+        if(result != null){
+            console.log(result)
+            return
+        }
+    }
+    console.log("No service")
+
+}
+//----------------------------------------------------
+const consultants=[
+{"name":"John", "rate":4.5, "price":1000},
+{"name":"Bob", "rate":3, "price":1200},
+{"name":"Jenny", "rate":3.8, "price":800}
+];
+book(consultants, 15, 1, "price"); // Jenny
+book(consultants, 11, 2, "price"); // Jenny
+book(consultants, 10, 2, "price"); // John
+book(consultants, 20, 2, "rate"); // John
+book(consultants, 11, 1, "rate"); // Bob
+book(consultants, 11, 2, "rate"); // No Service
+book(consultants, 14, 3, "price"); // John
+
+//Task3
+console.log("=====================================")
+function func(...data){
+// your code here
+//原本的姓名
+    let realName=[...data];
+//去姓的名子
+    let name=[]
+//結果
+    let result=[]
+//先把姓氏拿掉,處理好的放入 去姓的名子
+    for(middle of data){
+        if(middle.length== 2){
+        middle=middle.substring(1,2)      
+        }else if(middle.length== 3){
+        middle=middle.substring(1,3) 
+        }else{
+        middle=middle.substring(2,5)
+        }name.push(new Set(middle));
+    }       
+//檢查是否有相同的字,如果沒有相同,放到結果陣列中
+//【陣列.push(資料)】【陣列的長度為 陣列.length】
+//some()會將陣列中的「每一個」元素帶入指定的函式內做判斷，只要有任何一個元素符合判斷條件就回傳 true
+//has()用來檢查set中有沒有特定的值，回傳true/false
+    for(let i = 0; i < name.length; i++){
+        let same=false;
+        for(let j = 0; j < name.length; j++){
+            if((i!=j) &&  [...name[i]].some(letter => name[j].has(letter))) {
+                same=true; 
+                break;   
+            }
+        }
+        if(same==false){
+            result.push(realName[i])
+        }    
+    }
+//如果有結果,把它印出來
+//join()可將陣列中所有元素，藉由指定的字符合併在一起變成字串呈現，若沒有指定字符預設會用「逗號」合併。
+    if(result.length > 0){
+    console.log(result.join())
+    }else{
+        console.log("沒有")
+    }}
+func("彭大牆", "陳王明雅", "吳明"); // print 彭大牆
+func("郭靜雅", "王立強", "郭林靜宜", "郭立恆", "林花花"); // print 林花花
+func("郭宣雅", "林靜宜", "郭宣恆", "林靜花"); // print 沒有
+func("郭宣雅", "夏曼藍波安", "郭宣恆"); // print 夏曼藍波安
+
+
+//task4
+console.log("===============================")
+function getNumber(index){
+    // your code here
+    let num= 0; 
+    let sum= 0; 
+    for(let i= 0; i <= index; i++){        
+        if(i==0){
+            sum= num
+        }else if(i % 3 !=0){
+            sum= sum + 4
+        }else{
+            sum= sum - 1            
+        }        
+    }
+    console.log(sum)    
+}
+//------------------------------------------
+getNumber(1); // print 4
+getNumber(5); // print 15
+getNumber(10); // print 25
+getNumber(30); // print 70
+
+
+
+</script>
+</head>
+<body>    
+</body>
+</html>
