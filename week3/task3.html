@@ -1,1 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    //week3的內容
+    function getData(){
+        fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment-1").then(function(response){
+            return response.json();
+        }).then(function(data){
+            data=data["data"]["results"];
+            let imgList=[];
+            for(d of data){
+                    let imgs= d["filelist"];
+                    let index= imgs.indexOf("http",5);
+                    imgs=imgs.slice(0,index) 
+                    imgList.push(imgs)                 
+            };
 
+            let textList=[];
+            for(d of data){
+                    let text= d["stitle"];
+                    textList.push(text);
+            };         
+                let web=document.querySelectorAll("#web");//取得父親 
+                function small(){                
+                        for(let i = 0; i <= 2; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點                
+                            img.src=imgList[i];
+                            text.textContent=textList[i];
+                            web[i].appendChild(img);                      
+                            web[i].appendChild(text);                           
+                            img.setAttribute("class", "smallPic0")
+                        }             
+                }
+
+                function short(x){                
+                        for(let i= x; i < x+4; i++){  
+                            let img=document.createElement("img");//創建元素節點
+                            let text=document.createElement("div");//創建地名元素節點                  
+                            img.src=imgList[i];
+                            text.textContent=textList[i];
+                            web[i].appendChild(text);  
+                            web[i].appendChild(img);
+                            img.setAttribute("class", "shortPic0");
+                            text.setAttribute("class", "textBlock0");
+                        }             
+                }
+                
+                    function long(num){
+                        let img=document.createElement("img");//創建元素節點
+                        let text=document.createElement("div");//創建地名元素節點
+                        img.src=imgList[num];
+                        text.textContent=textList[num];
+                        web[num].appendChild(text);  
+                        web[num].appendChild(img);
+                        img.setAttribute("class", "longPic0");
+                        text.setAttribute("class", "textBlock0");
+                    }
+                    small();           
+                    long(3);
+                    short(4);
+                    long(8);
+                    short(9);             
+                }      
+                        
+        );
+    };
+    getData();
+
+//筆電
+    function getData1200(){
+        fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment-1").then(function(response){
+            return response.json();
+        }).then(function(data){
+            data=data["data"]["results"];
+            let imgList=[];
+            for(d of data){
+                    let imgs= d["filelist"];
+                    let index= imgs.indexOf("http",5);
+                    imgs=imgs.slice(0,index) 
+                    imgList.push(imgs)                 
+            };
+            let textList=[];
+            for(d of data){
+                    let text= d["stitle"];
+                    textList.push(text);
+            };         
+            let web=document.querySelectorAll("#web1200");//取得父親
+            function small(){               
+                        for(let i = 0; i <= 2; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點 
+                            img.src=imgList[i];
+                            text.textContent=textList[i]; 
+                            web[i].appendChild(img);                     
+                            web[i].appendChild(text);                            
+                            img.setAttribute("class", "smallPic")
+                        }             
+            }
+            function big(){               
+                        for(let i = 3; i <= 10; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點 
+                            img.src=imgList[i];
+                            text.textContent=textList[i]; 
+                            web[i].appendChild(img);                     
+                            web[i].appendChild(text);                            
+                            img.setAttribute("class", "bigPic")
+                            text.setAttribute("class", "textBlock")
+                        }             
+            }
+            function long(){               
+                        for(let i = 11; i <= 12; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點 
+                            img.src=imgList[i];
+                            text.textContent=textList[i]; 
+                            web[i].appendChild(img);                     
+                            web[i].appendChild(text);                            
+                            img.setAttribute("class", "bigPic")
+                            text.setAttribute("class", "textBlock")
+                        }             
+            }
+            small();
+            big();
+            long();            
+    })}             
+    getData1200();
+//手機
+function getData600(){
+        fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment-1").then(function(response){
+            return response.json();
+        }).then(function(data){
+            data=data["data"]["results"];
+            let imgList=[];
+            for(d of data){
+                    let imgs= d["filelist"];
+                    let index= imgs.indexOf("http",5);
+                    imgs=imgs.slice(0,index) 
+                    imgList.push(imgs)                 
+            };
+            let textList=[];
+            for(d of data){
+                    let text= d["stitle"];
+                    textList.push(text);
+            };         
+            let web=document.querySelectorAll("#web600");//取得父親
+            function small(){               
+                        for(let i = 0; i <= 2; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點 
+                            img.src=imgList[i];
+                            text.textContent=textList[i]; 
+                            web[i].appendChild(img);                     
+                            web[i].appendChild(text);                            
+                            img.setAttribute("class", "smallPic3")
+                        }             
+            }
+            function big(){               
+                        for(let i = 3; i <= 12; i++){  
+                            let img=document.createElement("img");//創建照片元素節點   
+                            let text=document.createElement("div");//創建地名元素節點 
+                            img.src=imgList[i];
+                            text.textContent=textList[i]; 
+                            web[i].appendChild(img);                     
+                            web[i].appendChild(text);                            
+                            img.setAttribute("class", "bigPic3")
+                            text.setAttribute("class", "textBlock3")
+                        }             
+            }
+           small();
+           big();                       
+    })}             
+    getData600();
+
+    
+    
+    //week1的內容        
+        function hamburger(){
+            let hamburger= document.querySelector(".hamburger");
+            let selectMenu= document.querySelector(".selectMenu");
+            hamburger.style.display= "none";
+            selectMenu.style.display= "block";}
+        
+        function x(){
+            let hamburger= document.querySelector(".hamburger");
+            let selectMenu= document.querySelector(".selectMenu");
+            hamburger.style.display= "block";
+            selectMenu.style.display= "none";} 
+           
+    </script>
+    <style link rel="stylesheet" type="text/css">
+        /*rwd*/
+        .three{display: none;}
+        .two{display: none;}
+        .zero{display: block;} 
+        @media(max-width:600px){
+            .three{display: block;}
+            .two{display: none;}
+            .zero{display: none;}}
+
+        @media(max-width:1200px)and (min-width: 601px){
+            .three{display: none;}
+            .two{display: block;}
+            .zero{display: none;}   
+        }
+        /*內容*/
+        /*600以下*/
+        .nav3{
+            display: flex; margin: 10px;}
+        .welcome3{
+            background-color: rgb(215, 226, 240);
+            height: 250px; 
+            font-size: 40px;
+            display: flex; align-items: center; justify-content: center;}
+        .main3{
+            width: 90%; margin: 0 auto;
+            margin-top: 20px;}
+        .boxLayout3{
+            display: block; margin: 10px;}
+        .smallBlock{
+            width: 100%; margin-bottom: 10px;
+            background-color: rgb(215, 226, 240);
+            display: flex; align-items: center;}    
+        .smallPic3{
+            width: 80px; height: 50px; margin-right: 10px;
+             object-fit: cover;}
+        .bigBlock{
+            width: 100%; height: 200px; margin-bottom: 10px;
+            background-color: rgb(215, 226, 240);
+            overflow: hidden;            
+            position: relative;}
+        .bigPic3{
+            width: 100%; object-fit: cover;}
+        .textBlock3{
+            width: 100%; height: 50px;
+            position: absolute;
+            bottom: 0px;
+            background-color: aliceblue; opacity: 0.8;
+            display: flex; justify-content: center; align-items: center;}
+        .icon3{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .selectMenu{
+            display: none;
+            position:absolute;
+            right:0px; top:0px;
+            width: 120px; height: 100%;
+            border-left: 1px rgb(64, 63, 63) solid;
+            background-color: white;
+            z-index: 2;}
+        .selectItem{
+        margin: 30px;}
+            
+        .x{
+            position: absolute; top:10px; right:10px;
+            font-size: 30px;}  
+        /*1200以上*/        
+        body{
+            margin: 0px;
+            background-color: rgb(222, 222, 218);
+            font-size: 20px;}
+        nav{
+        display: flex; margin: 10px; }             
+        .title{flex: auto;}
+        .menu{
+        flex: none;
+        width: 6%;
+        justify-content: flex-end;text-align: center;}
+        .Welcome{
+        display: flex; align-items: center;justify-content: center;            
+        height: 250px;
+        background-color: rgb(215, 226, 240);       
+        margin-top: 10px; margin-bottom: 10px;}
+        .WelcomeText{            
+            font-size: 40px;}
+        .layout0{
+           width: 1200px; margin: 0 auto ;}
+        .smallBoxLayout0{display: flex;}
+        .smallBox0{
+            height: 50px; width: 380px; margin: 10px;
+            background-color: rgb(215, 226, 240);
+            display: flex; align-items: center;}
+        .smallPic0{
+            width: 80px; height: 100%; 
+            object-fit: cover;
+            margin-right: 10px;}
+        .bigBoxLayout0{display: flex;}
+        .longBox0{
+            width: 380px;height: 200px;
+            margin: 10px;
+            position: relative;}
+        .shortBox0{            
+            width: 180px; height: 200px;
+            margin: 10px;
+            position: relative;}
+        .longPic0{
+            width: 380px;height: 200px;
+            object-fit: cover;}
+        .shortPic0{
+            width: 180px; height: 200px;
+            object-fit: cover;}
+        .icon{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .textBlock0{
+            position: absolute; bottom: 0px;
+            background-color: rgb(250, 252, 255);           
+            width: 100%; height:50px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;justify-content: center;} 
+      
+       
+        /*600-1200*/    
+        .layout{
+            width: 90%; margin: 0 auto;}
+        .BoxLayout{
+            display: flex;}
+        .smallBox1{
+            height: 50px; width: 50%;
+            margin: 10px; background-color: rgb(215, 226, 240);  ;
+            display: flex; align-items: center;}
+        .smallBox3{
+            height: 50px; width: 100%;
+            margin: 10px; background-color: rgb(215, 226, 240);  ;
+            display: flex; align-items: center;}        
+        .smallPic{
+            width: 80px; height: 50px; margin-right: 10px;
+            object-fit: cover;}
+        
+        .bigBox{
+            height: 200px; width: 25%;
+            margin: 10px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        .bigPic{
+            width: 100%;
+            object-fit: cover;}
+        .icon{
+            position: absolute;
+            top: 0px; right: 0px;}
+        .textBlock{
+            position: absolute;
+            bottom: 0px;
+            background-color: aliceblue;
+            width: 100%; height: 50px;
+            opacity: 0.8;
+            display: flex; align-items: center;justify-content: center;}
+        .longBox{
+            height: 200px; width: 50%; margin: 10px;
+            display: flex;
+            overflow: hidden;
+            position: relative;}  
+    </style>
+</head>
+
+<body>
+    <div class="zero">
+    <nav>
+        <div class="title">My Website</div>
+        <div class="menu">Item 1</div>
+        <div class="menu">Item 2</div>
+        <div class="menu">Item 3</div>
+        <div class="menu">Item 4</div>      
+    </nav>
+    <main>
+        <div class="Welcome">
+            <div class="WelcomeText">Welcome to MyHome</div>
+        </div>
+        <div class="layout0">
+            <div class="smallBoxLayout0">
+                <div class="smallBox0" id="web"></div>
+                <div class="smallBox0" id="web"></div>
+                <div class="smallBox0" id="web"></div>
+            </div>
+            <div class="bigBoxLayout0">
+                <div class="longBox0" id="web">                    
+                    <div class= "icon">&#11088;</div>
+                    
+                </div>
+                <div class="shortBox0" id="web">                    
+                    <div class= "icon">&#11088;</div>                                       
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                    
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                    
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                    
+                </div>        
+            </div>
+            <div class="bigBoxLayout0">
+                <div class="longBox0" id="web">
+                    <div class= "icon">&#11088;</div>                    
+                </div>
+                <div class="shortBox0" id="web" >
+                    <div class= "icon">&#11088;</div>                  
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                  
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                 
+                </div>
+                <div class="shortBox0" id="web">
+                    <div class= "icon">&#11088;</div>                   
+                </div>        
+                        
+            </div>
+        </div>
+    </main>
+</div>
+
+<!--600-1200尺寸-->
+<div class="two">
+<nav>
+    <div class="title">My Website</div>
+    <div class="menu">Item 1</div>
+    <div class="menu">Item 2</div>
+    <div class="menu">Item 3</div>
+    <div class="menu">Item 4</div>      
+</nav>
+<main>
+    <div class="Welcome">
+        <div class="WelcomeText">Welcome to MyHome</div>
+    </div>
+    <div class="layout">
+        <div class="BoxLayout">
+            <div class="smallBox1" id="web1200"></div>
+            <div class="smallBox1"  id="web1200"></div>
+        </div>
+        <div class="BoxLayout">
+            <div class="smallBox3" id="web1200" ></div>
+        </div>
+        <div class="BoxLayout">
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>               
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                   
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                
+            </div>
+        </div>
+        <!--第二層相同-->
+        <div class="two">
+        <div class="BoxLayout">
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                   
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                
+            </div>
+            <div class="bigBox" id="web1200">
+                <div class="icon">&#11088;</div>                
+            </div>
+        </div>
+        <!--第三層-->
+        <div class="BoxLayout">
+            <div class="longBox" id="web1200">                
+                <div class="icon">&#11088;</div>                
+            </div>
+            <div class="longBox" id="web1200">                
+                <div class="icon">&#11088;</div>               
+            </div>
+        </div>             
+    </div>   
+</main>
+</div>
+
+<!--600以下-->
+<div class= "three">
+    <div class="nav3">
+        <div class="title">My Website</div>
+        <div class="hamburger" onclick="hamburger();">&#9776</div>
+        <div class="selectMenu">
+            <div class="x" onclick="x();">&times;</div>
+            <div class="selectItem">Item 1</div>
+            <div class="selectItem">Item 2</div>
+            <div class="selectItem">Item 3</div>
+            <div class="selectItem">Item 4</div>
+        </div>
+    </div>
+    <div class="welcome3">Welcome to MyHome</div>
+    <div class="main3">
+        <div class="boxLayout3">
+           <div class= "smallBlock" id="web600"></div>
+           <div class= "smallBlock" id="web600"></div>
+           <div class= "smallBlock" id="web600"></div>
+           <!--大格的-->
+           <div class="bigBlock" id="web600">
+                <div class="icon3">&#11088;</div>
+           </div> 
+           <div class="bigBlock" id="web600">
+            <div class="icon3">&#11088;</div>
+       </div> 
+       <div class="bigBlock" id="web600">
+        <div class="icon3">&#11088;</div>
+   </div> 
+   <div class="bigBlock" id="web600">
+    <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">        
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">        
+        <div class="icon3">&#11088;</div>
+    </div> 
+    <div class="bigBlock" id="web600">
+        <div class="icon3">&#11088;</div>
+    </div> 
+        
+</div>
+
+</body>
+</html>
