@@ -1,17 +1,9 @@
-from fastapi import FastAPI, Form, Request
-from starlette.applications import Starlette
-from starlette.middleware import Middleware
-from starlette.middleware.sessions import SessionMiddleware 
-from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse 
-from fastapi.templating import Jinja2Templates
-from pathlib import Path
-from typing import Annotated
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="my_key")
 templates= Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return FileResponse("index.html")
+    return templates.TemplateResponse("home.html",{"request": request})
 @app.get("/member", response_class=HTMLResponse)
 async def member(request: Request):#test 
     if not request.session.get("SIGN-IN"):
