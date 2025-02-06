@@ -11,7 +11,7 @@ app.add_middleware(SessionMiddleware, secret_key="my_key")
 templates= Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("home.html",{"request": request})
+    return templates.TemplateResponse("index.html",{"request": request})
 @app.get("/member", response_class=HTMLResponse)
 async def member(request: Request):#test 
     if not request.session.get("SIGN-IN"):
