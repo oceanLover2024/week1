@@ -2,7 +2,7 @@ from fastapi import FastAPI, Form, Request
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.sessions import SessionMiddleware 
-from fastapi.responses import RedirectResponse,  FileResponse, HTMLResponse 
+from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse 
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 from typing import Annotated
@@ -40,4 +40,3 @@ async def square(num, request:Request):
     num= int(num)
     ans= num* num
     return templates.TemplateResponse("square.html", {"request":request, "ans":ans})
-
