@@ -1,3 +1,11 @@
+from fastapi import FastAPI, Form, Request
+from starlette.applications import Starlette
+from starlette.middleware import Middleware
+from starlette.middleware.sessions import SessionMiddleware 
+from fastapi.responses import RedirectResponse, HTMLResponse 
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
+from typing import Annotated
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="my_key")
 templates= Jinja2Templates(directory="templates")
