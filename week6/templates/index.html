@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+    <meta charset= "UTF-8">
+    <meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body{
+            margin: 0px;             
+        }
+        .title{
+            background-color: rgb(2, 27, 84); height: 50px;         
+            display: flex; align-items: center; justify-content: center;                      
+        }
+        .text{
+            color: white; font-size: 20px;         
+        }
+        .context{
+            text-align: center; margin-top: 10px;
+        }
+        .sign{
+            font-size: 18px; font-weight: bold; margin-top: 15px; margin-bottom: 10px;
+        }
+        .inputBox{
+            margin: 5px;
+        }        
+    </style>
+            
+</head>
+<body>
+    <div class= "title">
+        <div class= "text">歡迎光臨，請註冊登入系統</div>
+    </div>
+    <div class= "context">
+        <div class= "sign">註冊帳號</div>
+        <form action= "/signup"  method= "post">
+            <lable>姓名<input type= "text" class= "inputBox" name= "membername" required></lable>
+            <br>
+            <lable>帳號<input type= "text" class= "inputBox" name= "username" required></lable>
+            <br>
+            <lable>密碼<input type= "password" class= "inputBox" name= "password" required></lable>
+            <br>
+            <input type= "submit" value= "註冊" class= "inputBox">
+        </form>   
+        <hr>           
+        <div class= "sign">登入系統</div>
+        <form action= "/signin"  method= "post">
+            <label>帳號<input type= "text" class= "inputBox" name= "username" required></label>   
+            <br>    
+            <label>密碼<input type= "password" class= "inputBox"name= "password" required></label>         
+            <br>        
+            <input type= "submit" value= "登入" class= "inputBox btn">       
+        </form>
+    </div>  
+</body>
+</html>
