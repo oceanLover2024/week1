@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member</title>
+    <style>
+        body{
+            margin: 0px;             
+        }
+        .title{
+            background-color: rgb(2, 27, 84); height: 50px;         
+            display: flex; align-items: center; justify-content: center;                      
+        }
+        .titleText{
+            color: white; font-size: 20px;         
+        }
+        .context{
+            text-align: center; margin: 20px;
+        }
+        .inputBox{
+            margin: 5px;
+        }
+        form{
+            display: inline;
+        }
+        .bold_text{
+            font-weight: bold; margin-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class= "title">
+        <div class= "titleText">歡迎光臨，這是會員頁</div>
+    </div>
+    <div class= "context">
+        <div>{{ membername }}，歡迎登入系統</div><br>
+        <a href= "/signout">登出系統</a>
+        
+        <div class= "bold_text">查詢會員姓名</div>
+        <input type= "text" id="findName" class= "inputBox" required>
+        <button onclick= "findName();">查詢</button>
+        <div id= "found"></div>
+
+        <div class= "bold_text">更新我的姓名</div>
+        <input type= "text" id= "changeName" class= "inputBox">
+        <button onclick= "changeName();">更新</button>
+        <div id= "change"></div>
+        <hr>
+        <h3>快來留言吧</h3>
+        <form action= "/createMessage"  method= "post">
+            <label>內容<input type= "text" name= "new_message" class= "inputBox" required></label><br/>            
+            <input type= "submit" value= "送出">
+        </form>
+        <hr>
+        <div>{% for message in messages %}
+            <div>
+                <span>{{ message[0] }} : {{ message[1] }}</span>
+            {% if message[0] == membername %}
+                <form action= "/deleteMessage" method= "post">
+                    <input type= "hidden" value= {{ message[2] }} name= "message_id">
+                    <button type= "button" onclick= "check(this);">X</button>
+                </form>
+            {% endif %}
+            </div>           
+            {% endfor %}
+        </div>
+    </div>
+<script>
+    function check(b){
+        if(confirm("確定要刪除嗎?")){
+            b.parentElement.submit();
+        }        
+    }
+    
+    async function findName(){
+        let findName= document.querySelector("#findName").value;
+        let found= document.querySelector("#found");
+        let response= await fetch("/api/member?username="+findName);
+        let responseJsonData= await response.json();
+        if(responseJsonData.data === "null"){
+            found.innerHTML= "No Data";
+        }else{
+            found.innerHTML= `${responseJsonData.data.name}(${responseJsonData.data.username})`;
+        }           
+    }
+    async function changeName(){
+        let changeName= document.querySelector("#changeName").value;
+        let change= document.querySelector("#change");
+        if(changeName===""){
+            change.innerHTML="請輸入要更新的姓名"
+            return
+        }
+        let response= await fetch("/api/member",{
+            method: "PATCH",
+            body: JSON.stringify({"name":changeName}),
+            headers:{ "Content-type": "application/json;"}
+        })
+        let data= await response.json();
+        if(data.ok){
+            change.innerHTML= "更新成功";
+        }else{
+            change.innerHTML= "更新失敗";
+        }
+    }    
+</script>   
+</body>
+</html>
