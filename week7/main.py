@@ -99,13 +99,13 @@ async def api(request: Request,username: Annotated[str,Query]):
     con, mycursor= get_mysql()
     try:
         if not request.session.get("username"):
-            return{"data":"null"}
+            return{"data": None}
         mycursor.execute("SELECT id, name, username FROM member WHERE username= %s", (username,))   
         user_data= mycursor.fetchone() 
         if user_data:
             return {"data":{"id":user_data[0],"name":user_data[1],"username":user_data[2] }}
         else:
-            return{"data":"null"}
+            return{"data": None}
     finally:
         mycursor.close()
         con.close()
