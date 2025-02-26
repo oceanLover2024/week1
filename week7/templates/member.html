@@ -78,7 +78,7 @@
         let found= document.querySelector("#found");
         let response= await fetch("/api/member?username="+findName);
         let responseJsonData= await response.json();
-        if(responseJsonData.data === "null"){
+        if(responseJsonData.data === null){
             found.innerHTML= "No Data";
         }else{
             found.innerHTML= `${responseJsonData.data.name}(${responseJsonData.data.username})`;
